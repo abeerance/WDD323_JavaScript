@@ -58,3 +58,59 @@ console.log(13 % 5); // output: 3
 console.log(-13 % 5); // output: -3
 console.log(4 % 2); // output: 0
 console.log(15 % 4); // output: 3
+
+// Der console.clear() löscht den Konsohlenverlauf bis zu diesem Zeitpunkt
+console.clear();
+
+//---- NOT Operator ( ! ) ----//
+// Der NOT Operator wird verwendet, um den Wert umzukehren.
+// Wenn der Wert true ist, wird er zu false.
+let first = 1;
+let second = 2;
+
+console.log(first === second); // output: false
+console.log(!first === second); // output: true
+console.log(first !== second); // output: true
+
+console.clear();
+
+//---- AND Operator ( && ) ----//
+// Der AND Operator wird verwendet, um eine Überprüfung zu erweitern
+// Wenn beide Werte true sind, ist das Ergebnis true.
+console.log(first === 1 && second !== 2); // output: true
+// Sobald eine Condition FALSE ist, bricht er ab und gibt FALSE zurück.
+
+//---- OR Operator ( || ) ----//
+// Der OR Operator wird verwendet, um eine Überprüfung zu erweitern
+// Wenn einer der Werte true ist, ist das Ergebnis true.
+console.log(first === 1 || second !== 2);
+// Sobald eine Condition TRUE ist, dann gibt er TRUE zurück.
+
+//---- Multiplication Operator ( * ) ----//
+// Der Multiplication Operator wird verwendet, um zwei Werte zu multiplizieren.
+console.log(2 * 2); // output: 4
+
+//---- Division Operator ( / ) ----//
+// Der Division Operator wird verwendet, um zwei Werte zu dividieren.
+console.log(4 / 2); // output: 2
+
+//---- Exponentation Operator ( ** ) ----//
+// Der Exponentation Operator wird verwendet, um einen Wert zu potenzieren.
+console.log(2 ** 2); // output: 4
+console.log(2 ** 3); // output: 8
+console.log(2 ** 4); // output: 16
+
+console.log(Math.pow(2, 4)); // output: 16 -> Alte schreibweise vor ES6
+
+//---- Increment Operator ( ++ ) ----//
+// Der Increment Operator wird verwendet, um einen Wert um 1 zu erhöhen.
+let counter = 1;
+counter++; // counter ist jetzt 2
+counter++; // counter ist jetzt 3
+console.log(counter); // output: 3;
+
+//---- Decrement Operator ( -- ) ----//
+// Der Decrement Operator wird verwendet, um einen Wert um 1 zu verringern.
+counter--; // counter ist jetzt 2
+counter--; // counter ist jetzt 1
+console.log(counter); // output: 1;
