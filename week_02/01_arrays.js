@@ -1,37 +1,37 @@
+/* Arrays */
 
+/* Array are basically lists of values */
+/* They can have strings : */
+const myArr = ['popcorn', 'coke', 'candy'];
+/* They can also have Numbers */
+const myArr2 = [2, 3, 4];
+/* They can also have Booleans */
+const myArr3 = [true, true, false];
+/* Basically any datatype you can think of, even objects */
+const myArr4 = [{color: 'red', age: 26 },{color: 'blue', age: 90 }]
+// Or you can also have arrays in arrays
+// This is knowns a a multidimensional array
 
-const fruits = ['banana', 'mango', 'pear', 'apple', 'strawberry']
-console.log(fruits)
-for (let i = 0; i < fruits.length; i++) {
-  console.log(fruits[i])
-
-}
-
-
-for (let i = 0; i< 100; i+=2) {
-
-}
-
-
-
-// console.log(fruits[4])
-
-const complexArray = [
-  [0,1,2,3],
-  ['banana', 'mango', 'pear', 'apple'],
-  ['banana', 'mango', 'peardahjbdkjha', 'apple'],
-  [0,0,0, [0,1,4,56,7]],
-  fruits
+const multi = [
+  [1, 2, 3, 4, 5],
+  ['Luca', 'Chin', 'Stefan'],
+  [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9],
+    [15, 33, [
+      'apple',
+      'banana',
+      'mango'
+    ]]
+  ]
 ]
 
-// console.log(complexArray[2][2], complexArray[2][3] )
-// console.log(complexArray[3][3][3])
 
-const myArray = []
+console.log(multi[1][1])// Chin
 
-const studentName = 'Arda'
 
-myArray.push(studentName)
-myArray.push('Kim')
-myArray.push('Mario')
-console.log(myArray)
+console.log(multi[2][1][2])// 6
+
+
+console.log(multi[2][3][2][1])// banana
