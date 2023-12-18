@@ -1,21 +1,33 @@
 // Create a script that will generate a div in the document when a button is clicked
 // You can use CSS to style your boxes
 // 1: If the button is clicked, you should
-// a. create a div
-// b. insert it in the .container element
-// BONUS 1 : Each generated box should get a random background color
-// You can use monochrome colors if you want
-// BONUS 2 : When clicking an existing box, it should be removed from the document
+document.querySelector("button").addEventListener("click", (event) => {
+  // a. create a div
+  const box = document.createElement("div");
 
-// 1: select the button and add click event handler to it
+  // This is the version with HEX-Colors
+  const randomColor = Math.floor(Math.random() * 16777215).toString(16);
 
-//2: Create  a div
+  box.style.backgroundColor = `#${randomColor}`;
 
-// BONUS 1.a: create 3 random values between 0 and 255
+  // This is the version with RBG
+  //   // BONUS a.1: create 3 random values for the background color
+  //   const randomRed = Math.floor(Math.random() * 256);
+  //   const randomGreen = Math.floor(Math.random() * 256);
+  //   const randomBlue = Math.floor(Math.random() * 256);
 
-// BONUS 1.b: use the number as part of the rgb value for the background color
+  //   // BONUS a.2: use the RGB-Numbers to add a background-color to the box
+  //   box.style.backgroundColor = `rgb(${randomRed}, ${randomGreen}, ${randomBlue})`;
 
-//3: add the div to the container
+  // b. insert it in the .container element
+  document.querySelector(".container").appendChild(box);
 
-// BONUS 2: Add an event listener too all the boxes
-// Iterate thought all the boxes (divs)
+  // BONUS 2: Add an event listener to all the boxes
+  // So that we can delete them
+  // For that we need to iterate through all the boxes (divs)
+  box.addEventListener("click", (event) => {
+    console.log(event.target);
+    // And remove the box that was clicked
+    event.target.remove();
+  });
+});
