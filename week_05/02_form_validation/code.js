@@ -9,6 +9,9 @@ function validateForm(event) {
   event.preventDefault();
 
   /* Here comes the deletion of error messages */
+  // here you need to check if there are any error messages in the form
+  // if there are, delete them so we can fill it in again
+  document.querySelectorAll(".error").forEach((element) => element.remove());
 
   // define a data object in which we store the user input
   let data = {};
@@ -52,5 +55,80 @@ function validateForm(event) {
     // define variable for email RegExp
     const emailRegExp =
       /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    // test if email is a valid email address with the help of the RegExp
+    if (!emailRegExp.test(data.email)) {
+      // if it's not a valid email address, store the error message
+      validationErrors.email = "Please enter a valid email address";
+    } else {
+      // if it's a valid email address, log it to the console
+      console.info("Email: ", data.email);
+    }
+  }
+
+  // Form validation for message, check if it's empty
+  if (!data.message) {
+    validationErrors.message = "Please enter your message";
+  } else {
+    // check if the message is longer than 30 characters (min. length 30)
+    if (data.message.length < 31) {
+      validationErrors.message =
+        "Your message is too short (min.30 characters)";
+    } else {
+      console.info("Message: ", data.message);
+    }
+  }
+
+  // function to display the error in the validationErrors object
+  function displayError(validationErrors) {
+    if (validationErrors.firstName) {
+      // here we create a span element
+      const errorContainer = document.createElement("span");
+      errorContainer.classList.add("error");
+      // we add the error to the span element
+      errorContainer.innerHTML = validationErrors.firstName;
+      // here we select the div element with the id "first-name"
+      // and add the error message after it
+      document.querySelector("#first-name").after(errorContainer);
+    }
+
+    // Here add all the other validationErrors for the other stuff
+    if (validationErrors.lastName) {
+      // here we create a span element
+      const errorContainer = document.createElement("span");
+      errorContainer.classList.add("error");
+      // we add the error to the span element
+      errorContainer.innerHTML = validationErrors.lastName;
+      // here we select the div element with the id "first-name"
+      // and add the error message after it
+      document.querySelector("#last-name").after(errorContainer);
+    }
+
+    if (validationErrors.email) {
+      // we add the error to the span element
+      errorContainer.innerHTML = validationErrors.email;
+      // here we select the div element with the id "first-name"
+      // and add the error message after it
+      document.querySelector("#email").after(errorContainer);
+    }
+
+    if (validationErrors.message) {
+      // here we create a span element
+      const errorContainer = document.createElement("span");
+      errorContainer.classList.add("error");
+      // we add the error to the span element
+      errorContainer.innerHTML = validationErrors.message;
+      // here we select the div element with the id "first-name"
+      // and add the error message after it
+      document.querySelector("#message").after(errorContainer);
+    }
+  }
+
+  // If there are no errors, dent the data to the backend
+  if (Object.keys(validationErrors).length > 0) {
+    // display the error message
+    displayError(validationErrors);
+  } else {
+    // send the data to the backend
+    console.log("Data sent to the backend");
   }
 }
